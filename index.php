@@ -1,6 +1,7 @@
 <?php
 include('conexao.php');
 
+
 $consulta = "SELECT * FROM `artigo` WHERE 1"; 
  $result = $mysqli->query($consulta);
 
@@ -24,9 +25,7 @@ $consulta = "SELECT * FROM `artigo` WHERE 1";
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <?php
-        while ($user_data = mysqli_fetch_assoc($result))
-        ?>
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -60,21 +59,37 @@ $consulta = "SELECT * FROM `artigo` WHERE 1";
                     <h2 class="section-heading text-uppercase">Artigos</h2>
                     <h3 class="section-subheading text-muted">Então conheçamos, e prossigamos em conhecer ao Senhor; Oséias 6:3</h3>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                <?php
+                $rls = mysqli_query($mysqli, "SELECT * FROM `artigo` WHERE 1");
+while ($user_data = mysqli_fetch_assoc($rls))
+{
+
+
+echo"  
+                <div class='row'>
+                    <div class='col-lg-4 col-sm-6 mb-4'>
                         <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        <div class='portfolio-item'>
+                            <a href='video.php?id=$user_data[id_v]'>
+                                <div class='portfolio-hover'>
+                                    <div class='portfolio-hover-content'><i class='fas fa-plus fa-3x'></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo['$imgcmd']?>" alt="..." />
+                                
+  <img src='.$user_data[img].' alt='Imagem da fachada' class='img-fachada'>
                             </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">A Maldição da Cruz</div>
+                            <div class='portfolio-caption'>
+                                <div class='portfolio-caption-heading'>'.$user_data[titulo].'</div>
                                 
                             </div>
-                        </div>
+                        </div>";
+
+
+
+
+
+}
+?>
+                               
                     </div>
       
         <!-- About-->
@@ -83,17 +98,29 @@ $consulta = "SELECT * FROM `artigo` WHERE 1";
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Videos</h2>
                 </div>
-                <div> 
-                <iframe width="420" height="315"
-src="https://www.youtube.com/embed/PYmgX6C0A_U">
-</iframe>
+                <?php
+$result = mysqli_query($mysqli, "SELECT * FROM `video` WHERE 1");
+while ($user_data = mysqli_fetch_assoc($result))
+{
+
+
+
+echo'   <div> 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/PYmgX6C0A_U">
+src='.$user_data['urlv'].'>
 </iframe>
-<iframe width="420" height="315"
-src="https://www.youtube.com/embed/PYmgX6C0A_U">
+
 </iframe>
-            </div>
+</div>';
+
+
+
+
+
+
+}
+?>
+         
               
         
         
@@ -113,7 +140,11 @@ src="https://www.youtube.com/embed/PYmgX6C0A_U">
         </footer>
         <!-- Portfolio Modals-->
         <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <?php
+                                   $rlsc = mysqli_query($mysqli, "SELECT * FROM `artigo` WHERE 1");
+                                   while ($user_data = mysqli_fetch_assoc($rlsc))
+                                    echo '
+        <div class="" id='.$user_data['id_artigo'].' tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -122,14 +153,15 @@ src="https://www.youtube.com/embed/PYmgX6C0A_U">
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">A Maldição da Cruz</h2>
-                                    <img class="img-fluid d-block mx-auto" src="https://conhecereprosseguir.com/wp-content/uploads/2021/12/morte-cruz-cemiterio-1655381-768x515.jpg" alt="..." />
-                                    <p>Quando pensamos no sacrifício de Cristo na cruz vemos que ao vir a terra para morrer por nós ele sofreu uma espécie de humilhação “ E, sendo encontrado em forma humana, humilhou-se a si mesmo e foi obediente até a morte, e morte de cruz! Filipenses 2:8” embora o fato de Deus se tornar homem já seja humilhante o suficiente, perante todos os seres santos que não caíram em pecado, ainda existe um agravante, a morte de cruz, mas qual a razão para a cruz ser um motivo de ênfase?
-
-Bem, se nós lembrarmos do início veremos que Jesus também é Deus “ No princípio era aquele que é a Palavra. Ele estava com Deus e era Deus. Ele estava com Deus no princípio. Todas as coisas foram feitas por intermédio dele; sem ele, nada do que existe teria sido feito. João 1:1-3” sendo Ele também o criador de todas as coisas deixadas leis para que o universo vivesse em harmonia e o não cumprimento dessas leis seria uma transgressão chamada pecado e aquele que cometesse tal ato teria uma triste recompensa “Pois o salário do pecado é a morte, mas o dom gratuito de Deus é a vida eterna em Cristo Jesus, nosso Senhor. Romanos 6:23”.
-
-Com a queda da raça humana Deus tinha duas opções fazer cumprir a lei ou prover um substituto para que os seres humanos não morressem, e foi nesse momento que ele modificou o seu amor “Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que tudo o que nele crer não pereça, mas tenha a vida eterna. João 3:16” foi esse tão grande amor que fez Jesus tomar nosso lugar e se humilhar perante todos, inclusive os próprios pecadores “ Se um homem culpado de um crime que merece a morte por morto e pendurado num madeiro, não deixem o corpo no madeiro durante a noite. Enterrem-no mesmo dia, porque qualquer que for pendurado num madeiro está debaixo da maldição de Deus. Deuteronômio 21: 22,23” tomando sobre si todas as maldições possíveis morreu uma morte de cruz para que aqueles que um dia o rejeitaram tivessem a oportunidade de mais uma vez poderem ser livres do pecado.</p>
-                                    <ul class="list-inline">
+                                  
+                                    <h2 class="text-uppercase">'.$user_data['titulo'].'</h2>
+                                    <img class="img-fluid d-block mx-auto" src="'.$user_data['img'].'" alt="..." />
+                                    <p>'.$user_data['texto'].''
+                                 
+                                    ;
+                                    ?>
+                                   
+                                        <ul class="list-inline">
                                   
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">

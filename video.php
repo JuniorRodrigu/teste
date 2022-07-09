@@ -76,6 +76,9 @@ body{
     <a  href="formulario.php">Publica Artigo</a>
     <br>
     <br>
+        <a  href="historicoV.php">Historico de Videos</a>
+        <br>
+    <br>
         <a  href="sair.php">Sair</a>
     </p>
     <a  href="index.php"><img src=" https://icon-library.com/images/html-home-icon/html-home-icon-4.jpg" alt="" height="70px"></a>
