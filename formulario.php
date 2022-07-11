@@ -32,6 +32,7 @@ $consulta = "SELECT * FROM `artigo` WHERE 1";
 </head>
 <style>
 body{
+
         font-family: Arial, Helvetica, sans-serif;
         background-image: linear-gradient(90deg, rgb(15, 15, 223), rgb(12, 196, 40) );
     }
@@ -41,9 +42,11 @@ body{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 88px;
+        padding: 7%;
+        height: 100%;
         border-radius: 15px;
         color: white;
+    
 
     }
     input{
@@ -99,9 +102,11 @@ body{
         <a  href="sair.php">    Sair</a>
     <br><br><br>
     <a href="historico.php">Historico</a>
-        
-    </p>
+    <br>
+    <br>
     <a  href="index.php"><img src=" https://icon-library.com/images/html-home-icon/html-home-icon-4.jpg" alt="" height="70px"></a>
+    </p>
+  
        
     </div>
 

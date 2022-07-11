@@ -1,18 +1,37 @@
+
+
 <?php
 include ('peotecao.php');
-include('conexao.php');
+include_once('conexao.php');
 
 
-if(isset($_POST['submit']))
+if(!empty($_GET['id']))
 {
   
-   $urlv = ($_POST['urlv']);
+$id= $_GET['id'];
+$sqlSelect = "SELECT * FROM video WHERE id=$id";
+$result = $mysqli->query($sqlSelect);
+if($result ->num_rows > 0)
+{
+    while ($user_data = mysqli_fetch_assoc($result))
+    {
 
-$result_artigo = mysqli_query($mysqli, "INSERT INTO video(urlv) 
-VALUES('$urlv')");
-
+   $url = $user_data['urlv']; 
+    }
+   
 }
+else
+{
+    header('location: historivoV.php');
+}
+}
+else
+    {
+        header('location: historivoV.php');
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,17 +81,33 @@ body{
         cursor: pointer;
         
     }
+    #submit{
+            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+            width: 100%;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        #submit:hover{
+            background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
+        }
     </style>
+   
 <body>
    <div class="centraliza"> 
+ 
     <p>
     <h1>Publica Video</h1>
-    <form action="" method="POST">
+    <form action="saveEdit.php" method="POST">
     <p>
     
-        <input placeholder="youtube.com/watch?v=" type="text" name="urlv" id="urlv">
+        <input placeholder="youtube.com/watch?v=" name="urlv" id="urlv" class="urlv" value=<?php echo $url;?> required>
     </p>
-    <button type="submit" name="submit" id="submit">Posta</button>
+    <input type="submit" name="update" id="submit">
     <a  href="formulario.php">Publica Artigo</a>
     <br>
     <br>
@@ -80,9 +115,18 @@ body{
         <br>
     <br>
         <a  href="sair.php">Sair</a>
+        <br>
+    <br>
+        <a  href="historicoV.php">Volta</a>
     </p>
+    
     <a  href="index.php"><img src=" https://icon-library.com/images/html-home-icon/html-home-icon-4.jpg" alt="" height="70px"></a>
+      
+      
        
     </div>
+  
+    <input type="hidden" name="id" value=<?php echo $id;?>>
+                
 </body>
 </html>
