@@ -16,7 +16,9 @@ if($result ->num_rows > 0)
     while ($user_data = mysqli_fetch_assoc($result))
     {
 
-   $url = $user_data['urlv']; 
+        $url = $user_data['urlv']; 
+        $titulo = $user_data['titulo']; 
+   
     }
    
 }
@@ -25,11 +27,6 @@ else
     header('location: historivoV.php');
 }
 }
-else
-    {
-        header('location: historivoV.php');
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -39,63 +36,10 @@ else
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/center.css">
+    <link rel="stylesheet" href="css/cssEDTV.css">
     <title>Document</title>
 </head>
-<style>
-body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-image: linear-gradient(90deg, rgb(15, 15, 223), rgb(12, 196, 40) );
-    }
-    div{
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 88px;
-        border-radius: 15px;
-        color: white;
 
-    }
-    input{
-        padding: 15px;
-        border: none;
-        outline: none;
-        font-size: 15px ;
-
-    }
-    button{
-        background-color: darkblue;
-        border: none;
-        padding: 15px;
-        width: 100%;
-        border-radius: 10px;
-        color: wheat;
-        font-size: 15px;
-        margin-bottom: 28px;
-        margin-top: 28px;
-
-    }
-    button:hover{
-        background-color: teal;
-        cursor: pointer;
-        
-    }
-    #submit{
-            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
-            width: 100%;
-            border: none;
-            padding: 15px;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        #submit:hover{
-            background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
-        }
-    </style>
    
 <body>
    <div class="centraliza"> 
@@ -107,6 +51,10 @@ body{
     
         <input placeholder="youtube.com/watch?v=" name="urlv" id="urlv" class="urlv" value=<?php echo $url;?> required>
     </p>
+    <p>
+    <input placeholder="titulo" type="text" name="titulo"  value=<?php echo $titulo;?> required>
+
+</p>
     <input type="submit" name="update" id="submit">
     <a  href="formulario.php">Publica Artigo</a>
     <br>

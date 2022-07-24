@@ -7,10 +7,14 @@ if(isset($_POST['submit']))
 {
   
    $urlv = ($_POST['urlv']);
+   $titulo = ($_POST['titulo']);
 
-$result_artigo = mysqli_query($mysqli, "INSERT INTO video(urlv) 
-VALUES('$urlv')");
+$result_artigo = mysqli_query($mysqli, "INSERT INTO video(urlv,titulo) 
+VALUES('$urlv','$titulo')");
 
+{
+    header('location: index.php');
+}
 }
 ?>
 <!DOCTYPE html>
@@ -19,50 +23,11 @@ VALUES('$urlv')");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/center.css">
+    <link rel="stylesheet" href="css/center.css"> 
+    <link rel="stylesheet" href="css/cssVV.css">
     <title>Document</title>
 </head>
-<style>
-body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-image: linear-gradient(90deg, rgb(15, 15, 223), rgb(12, 196, 40) );
-    }
-    div{
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 88px;
-        border-radius: 15px;
-        color: white;
 
-    }
-    input{
-        padding: 15px;
-        border: none;
-        outline: none;
-        font-size: 15px ;
-
-    }
-    button{
-        background-color: darkblue;
-        border: none;
-        padding: 15px;
-        width: 100%;
-        border-radius: 10px;
-        color: wheat;
-        font-size: 15px;
-        margin-bottom: 28px;
-        margin-top: 28px;
-
-    }
-    button:hover{
-        background-color: teal;
-        cursor: pointer;
-        
-    }
-    </style>
 <body>
    <div class="centraliza"> 
     <p>
@@ -70,7 +35,10 @@ body{
     <form action="" method="POST">
     <p>
     
-        <input placeholder="youtube.com/watch?v=" type="text" name="urlv" id="urlv">
+        <input placeholder="youtube.com/watch?v=" type="text" name="urlv" id="urlv" required>
+
+        <input placeholder="titulo" type="text" name="titulo" id="titulo" required>
+
     </p>
     <button type="submit" name="submit" id="submit">Posta</button>
     <a  href="formulario.php">Publica Artigo</a>

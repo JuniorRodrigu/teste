@@ -28,50 +28,60 @@ $consulta = "SELECT * FROM `artigo` WHERE 1";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/center.css">
+    <link rel="stylesheet" href="css/cssFORM.css">
+   
+    
     <title>Document</title>
 </head>
 <style>
+    
 body{
 
-        font-family: Arial, Helvetica, sans-serif;
-        background-image: linear-gradient(90deg, rgb(15, 15, 223), rgb(12, 196, 40) );
-    }
-    .centraliza{
-        background-color: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 7%;
-        height: 100%;
-        border-radius: 15px;
-        color: white;
+font-family: Arial, Helvetica, sans-serif;
+background-image: linear-gradient(90deg, rgb(15, 15, 223), rgb(12, 196, 40) );
+}
+.centraliza{
+background-color: rgba(0, 0, 0, 0.9);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 7%;
+height: 100%;
+border-radius: 15px;
+color: white;
+
+
+}
+input{
+padding: 15px;
+border: none;
+outline: none;
+font-size: 15px ;
+
+}
+button{
+background-color: darkblue;
+border: none;
+padding: 15px;
+width: 100%;
+border-radius: 10px;
+color: wheat;
+font-size: 15px;
+
+}
+button:hover{
+background-color: teal;
+cursor: pointer;
+
+}
+.bcente{
+    align-items: center;
+    justify-items: center;
     
+}
 
-    }
-    input{
-        padding: 15px;
-        border: none;
-        outline: none;
-        font-size: 15px ;
-
-    }
-    button{
-        background-color: darkblue;
-        border: none;
-        padding: 15px;
-        width: 100%;
-        border-radius: 10px;
-        color: wheat;
-        font-size: 15px;
-
-    }
-    button:hover{
-        background-color: teal;
-        cursor: pointer;
-        
-    }
-    </style>
+</style>
 <body>
    <div class="centraliza"> 
     <p>
@@ -79,35 +89,37 @@ body{
     <form action="" method="POST">
     <p>
         
-        <input placeholder="URL da Capa" type="text" name="img" id="img">
+        <input placeholder="URL da Capa" type="text" name="img" id="img" required>
     </p>
     <p>
         
-        <input placeholder="Titulo" type="text" name="titulo" id="titulo">
+        <input placeholder="Titulo" type="text" name="titulo" id="titulo" required>
     </p>
 <p >
 
-    
-    <textarea placeholder="Artigo"  type="text" name="texto" id="texto" rows="10" cols="40" maxlength="500900">
-    
-    </textarea>
+        
+        <textarea class="form-control" type="text" name="texto" id="texto" rows="10" cols="40" ></textarea>
+        
+
+  
 </p>
+<div class="bcente">
 <p>
     <button type="submit" name="submit" id="submit">Posta</button>
 </p>
     </form>
-    <a  href="video.php">Posta video     </a>
+    <a  class="link" href="video.php">Posta video     </a>
     <br>
     <br>
-        <a  href="sair.php">    Sair</a>
+        <a class="link" href="sair.php">    Sair</a>
     <br><br><br>
-    <a href="historico.php">Historico</a>
+    <a class="link"  href="historico.php">Historico</a>
     <br>
     <br>
-    <a  href="index.php"><img src=" https://icon-library.com/images/html-home-icon/html-home-icon-4.jpg" alt="" height="70px"></a>
+    <a class="link" href="index.php"><img src=" https://icon-library.com/images/html-home-icon/html-home-icon-4.jpg" alt="" height="70px"></a>
     </p>
   
-       
+    </div>  
     </div>
 
     

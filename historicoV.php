@@ -19,6 +19,7 @@ $consulta = "SELECT * FROM `video` WHERE 1";
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/cssHISTV.css" rel="stylesheet" />
       
     <title>Document</title>
 
@@ -27,47 +28,8 @@ $consulta = "SELECT * FROM `video` WHERE 1";
 
 
 </head>
-<a  href="formulario.php"><button type="submit">Volta</button></a>
-<style>
-  
-body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #1111;
-    }
-    .centraliza{
-        background-color: #1111;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 88px;
-        border-radius: 15px;
-        color: white;
+<a  href="video.php"><button type="submit">Volta</button></a>
 
-    }
-    input{
-        padding: 15px;
-        border: none;
-        outline: none;
-        font-size: 15px ;
-
-    }
-    button{
-        background-color: darkblue;
-        border: none;
-        padding: 15px;
-        width: 100%;
-        border-radius: 10px;
-        color: wheat;
-        font-size: 15px;
-
-    }
-    button:hover{
-        background-color: teal;
-        cursor: pointer;
-        
-    }
-    </style>
 <body>
         
 <div class="container">
@@ -86,6 +48,7 @@ while ($user_data = mysqli_fetch_assoc($result))
 echo "<tr>";
 
 echo"<td>".$user_data['urlv']."<td>";
+echo"<td>".$user_data['titulo']."<td>";
 echo
 "<td> 
 <a class='btn btn-sm btn-primary' href='editV.php?id=$user_data[id]'>
